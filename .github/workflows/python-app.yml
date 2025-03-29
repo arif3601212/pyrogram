@@ -1,0 +1,17 @@
+from telethon.sync import TelegramClient
+
+api_id = '28830445' 
+api_hash = 'b5fee5c1bdcc3706d9f11aae51fc185a' 
+phone = '+8801328582445' 
+client = TelegramClient(phone, api_id, api_hash)
+
+async def check_user(phone_number):
+    try:
+        user = await client.get_entity(phone_number) 
+        print(f'User {phone_number} is on Telegram with username: {user.username}')
+    except:
+        print(f'User {phone_number} is not on Telegram')
+
+client.start()
+for number in ["+8801711664994+8801776600342 +8801796955238 +8801309879598 +8801706502249 +8801863905415 +8801796754905"]:  
+    check_user(number)
